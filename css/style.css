@@ -1,0 +1,115 @@
+/* VARIÁVEIS DE TEMA (MODO ESCURO POR PADRÃO) */
+:root {
+    --primary: #3b82f6;
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --bg-input: #0f172a;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* VARIÁVEIS MODO CLARO */
+body.light-mode {
+    --bg-body: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-input: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: rgba(0, 0, 0, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+ 
+body { 
+    background-color: var(--bg-body); 
+    color: var(--text-main); 
+    transition: var(--transition);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--primary);
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: var(--transition);
+}
+.theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
+
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: flex; align-items: center; justify-content: center; }
+#screen-dashboard.active { display: grid; }
+
+.auth-container {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px var(--shadow);
+    transition: var(--transition);
+}
+
+.logo-box { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
+
+.field { text-align: left; margin-bottom: 15px; }
+.field label { font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 5px; }
+input {
+    width: 100%; padding: 14px; background: var(--bg-input);
+    border: 1px solid var(--border); border-radius: 12px; color: var(--text-main);
+    outline: none; transition: var(--transition);
+}
+input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+
+.btn { width: 100%; padding: 14px; border-radius: 12px; border: none; cursor: pointer; font-weight: 700; transition: var(--transition); margin-bottom: 10px; text-align: center; display: block; text-decoration: none;}
+.btn-main { background: var(--primary); color: white; }
+.btn-sec { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr 320px;
+    height: 100vh;
+}
+
+aside { background: var(--bg-card); border-right: 1px solid var(--border); padding: 30px 20px; transition: var(--transition); }
+main { padding: 40px; overflow-y: auto; }
+.right-panel { background: var(--bg-card); border-left: 1px solid var(--border); padding: 25px; transition: var(--transition); }
+
+.menu-item {
+    padding: 12px; display: flex; align-items: center; gap: 12px;
+    border-radius: 10px; cursor: pointer; color: var(--text-muted); margin-bottom: 8px;
+}
+.menu-item.active { background: rgba(59, 130, 246, 0.1); color: var(--primary); }
+
+.calendar-box {
+    background: var(--bg-input);
+    border-radius: 16px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    margin-top: 15px;
+}
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; font-size: 0.8rem; }
+.cal-day { padding: 8px; border-radius: 8px; cursor: pointer; }
+.cal-day.active { background: var(--primary); color: white; }
+.cal-label { font-weight: bold; color: var(--primary); margin-bottom: 10px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 25px; }
+.stat-card { background: var(--bg-card); padding: 20px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 6px var(--shadow); }
+.stat-card h2 { color: var(--primary); margin-top: 5px; }
