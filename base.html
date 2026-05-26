@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portyfi Pro - Theme Switcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    {% include 'landing.html' %}
+    {% include 'register.html' %}
+    {% include 'login.html' %}
+    {% include 'dashboard.html' %}
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
